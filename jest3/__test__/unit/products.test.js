@@ -12,7 +12,7 @@ let req, res, next;
 beforeEach(() => {
   req = httpMocks.createRequest();
   res = httpMocks.createResponse();
-  next = null;
+  next = jest.fn();
 });
 
 describe("프로덕트 컨트롤러 Create 함수", () => {
@@ -50,5 +50,13 @@ describe("프로덕트 컨트롤러 Create 함수", () => {
     await productController.createProduct(req, res, next);
     // res json data가 newProduct와 일치하는지 여부
     expect(res._getJSONData()).toStrictEqual(newProduct);
+  });
+
+  it("에러 반환 메시지 확인!!", async () => {
+    const errorMessage = { message: "description property missing" };
+    const rejectedPromise = Promise.reject(errorMessage);
+    productModel.create.mockReturnValue(rejectedPromise);
+    await productController.createProduct(req, res, next);
+    expect(next).toBeCalledWith(errorMessage);
   });
 });
