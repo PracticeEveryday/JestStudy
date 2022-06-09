@@ -25,6 +25,12 @@ app.use((error, req, res, next) => {
   res.status(500).json({ message: error.message });
 });
 
+// 에러 처리기
+// 에러가 발생하면 next를 통해 해당 부분으로 넘어 온다.
+app.use((error, req, res, next) => {
+  res.json({ message: error.message });
+});
+
 app.listen(PORT, () => {
   console.log(`this server listening on ${PORT}`);
 });
