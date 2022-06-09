@@ -1,0 +1,14 @@
+{
+  "name": "jest3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jest": "^28.1.1",
+    "mongoose": "^6.3.6",
+    "node-mocks-http": "^1.11.0",
+    "supertest": "^6.2.3"
+  }
+}
