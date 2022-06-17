@@ -1,19 +1,14 @@
-// 동기적
+const express = require("express");
+const app = express();
+const morgan = require("morgan");
 const fs = require("fs");
 
-const read = fs.readFileSync("./data.txt", "utf8");
+const user = fs.readFileSync("./data.txt", "utf8");
 
-console.log(read);
+app.use(morgan());
 
-// 비동기적
-const data2 = fs.readFile("./data.txt", "utf8", (err, data) => {
-  console.log(data);
+app.get("/users", (req, res) => {
+  res.json(user);
 });
 
-console.log(1);
-
-/*
- This is data file
- 1
- This is data file
- */
+app.listen(3000, () => console.log("3000번 포트 온"));
