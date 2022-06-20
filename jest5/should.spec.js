@@ -39,4 +39,52 @@ describe("exist test", () => {
     "".should.be.empty;
     ({ length: 0 }.should.be.empty);
   });
+
+  // it("equal", () => {
+  //   const value = undefined;
+  //   should.strictEqual(undefined, value);
+  //   should.strictEqual(false, value);
+  //   (4).should.equal(4);
+  //   "test".should.equal("test")[(1, 2, 3)].should.not.equal([1, 2, 3]);
+  // });
+
+  it("within", () => {
+    const user = {
+      age: 30,
+    };
+    user.age.should.be.within(5, 50);
+  });
+
+  // it("a", () => {
+  //   "test".should.be.a("string");
+  // });
+
+  it("instanceof", () => {
+    [].should.be.an.instanceOf(Array);
+  });
+
+  it("above", () => {
+    const age = 30;
+    age.should.be.above(20);
+  });
+
+  it("below", () => {
+    const age = 30;
+    age.should.be.below(1100);
+  });
+
+  it("length", () => {
+    const arr = [1, 2, 3];
+    arr.should.be.length(3);
+  });
+
+  it("property", () => {
+    const user = {
+      name: "kim",
+      age: 30,
+    };
+
+    user.should.have.property("name");
+    user.should.have.property("name", "kim");
+  });
 });
