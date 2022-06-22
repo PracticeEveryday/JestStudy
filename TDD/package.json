@@ -1,18 +1,20 @@
 {
-  "name": "TDD",
+  "name": "tdd",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mocha": "^10.0.0",
     "mongoose": "^6.4.0",
     "nodemon": "^2.0.16",
+    "should": "^13.2.3",
     "supertest": "^6.2.3"
   },
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "NODE_ENV=test mocha api/user/user.spec.js -w"
+    "start": "nodemon bin/www.js",
+    "test": "mocha __test__"
   }
 }
