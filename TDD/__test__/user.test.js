@@ -14,12 +14,20 @@ describe("GET /users", () => {
         await mongoose.connect(url, { useNewUrlParser: true });
       });
 
+      after(async () => {
+        // 모든 테스트가 종료되고 이게 마지막으로 실행된다.
+        if (mongoose.connection) {
+          await mongoose.connection.dropDatabase();
+          await mongoose.disconnect();
+        }
+      });
+
       request(app)
         .get("/user")
         .expect(200)
         .end((err, res) => {
-          console.log(res.body);
           res.body.should.be.instanceof(Array);
+          console.log(res.body);
           done();
         });
     });
