@@ -16,3 +16,5 @@ app.get("/users", (req, res) => {
 });
 
 app.listen(3000, console.log("3000번 포트 온"));
+
+module.exports = app;

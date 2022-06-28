@@ -21,3 +21,8 @@ describe("utils.js 모듈의 capitalize함수는 ", () => {
 // node_modules/.bin/mocha
 
 // describe 와 it으로 테스트 코드를 작성하고 작성된 코드를 돌려주는 친구가 mocha다!!
+
+// 단위 테스트로 함수의 기능을 테스트 하는 것임
+// capitalize의 함수를 하나 테스트함.
+
+// supertest는 통합 테스트를 테스트함..
