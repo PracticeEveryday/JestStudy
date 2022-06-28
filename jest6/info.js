@@ -42,3 +42,9 @@
 // test 코드를 돌려주는 테스트 러너
 // test suite 테스트 환경으로 모카에서는 describe()로 구현한다.
 // test case : 실제 테스트를 말하며 모카에서는 it()으로 구현한다.
+
+/**
+ * node의 assert를 사용하지 말고 third party library를 사용해라!!
+ * 슈드 ( should )는 검증 ( assertion ) 라이브러리이다.
+ * 가독성 높은 테스트 코드를 만들 수 있다.
+ */
