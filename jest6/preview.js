@@ -54,6 +54,7 @@ const errorMiddleware = (err, req, res, next) => {
  * 클라이언트 요청 정보를 담은 객체를 요청 ( Request) 객체라고 한다.
  *
  * http 모듈의 request 객체를 래핑한 것이다.
+ * 한번 래핑한 express 버전의 req, res!!!
  * req.params(), req.query(), req.body() 메소드를 주로 사용한다.
  */
 // 미들웨어 순서
