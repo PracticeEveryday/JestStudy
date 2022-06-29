@@ -12,8 +12,13 @@ const users = [
 app.use(morgan("dev"));
 
 app.get("/users", (req, res) => {
-  const { limit } = req.query;
+  req.query.limit = req.query.limit || 10;
+  const limit = parseInt(req.query.limit, 10);
 
+  if (Number.isNaN(limit)) {
+    // return을 안 넣어주면 아래 코드 다 실행 되서 중복 ㅠ
+    return res.status(400).end();
+  }
   res.json(users.slice(0, limit));
 });
 

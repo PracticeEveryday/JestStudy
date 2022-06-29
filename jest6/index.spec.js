@@ -26,4 +26,10 @@ describe("GET users/", () => {
         });
     });
   });
+
+  describe("실패 시", () => {
+    it("limit이 숫자가 아니면 400을 응답", (done) => {
+      request(app).get("/users?limit=two").expect(400).end(done);
+    });
+  });
 });
