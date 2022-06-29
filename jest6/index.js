@@ -12,7 +12,9 @@ const users = [
 app.use(morgan("dev"));
 
 app.get("/users", (req, res) => {
-  res.json(users);
+  const { limit } = req.query;
+
+  res.json(users.slice(0, limit));
 });
 
 app.listen(3000, console.log("3000번 포트 온"));

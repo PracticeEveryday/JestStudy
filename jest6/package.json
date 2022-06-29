@@ -8,7 +8,8 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "mocha index.spec.js --exit"
   },
   "devDependencies": {
     "mocha": "^10.0.0",

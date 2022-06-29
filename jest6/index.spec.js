@@ -16,5 +16,14 @@ describe("GET users/", () => {
           done();
         });
     });
+
+    it("최대 limit 개수만큼 응답한다.", (done) => {
+      request(app)
+        .get("/users?limit=2")
+        .end((err, res) => {
+          res.body.should.have.lengthOf(2);
+          done();
+        });
+    });
   });
 });
