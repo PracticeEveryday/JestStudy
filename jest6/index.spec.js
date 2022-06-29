@@ -33,3 +33,18 @@ describe("GET users/", () => {
     });
   });
 });
+
+// user/:id
+describe("GET users/id", () => {
+  describe("성공 시", () => {
+    it("id가 1인 유저를 반환한다.", (done) => {
+      request(app)
+        .get("/users/1")
+        .end((err, res) => {
+          // 기대하는 property이름, 나오는 값!
+          res.body.should.have.property("id", 1);
+          done();
+        });
+    });
+  });
+});

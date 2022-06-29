@@ -22,6 +22,12 @@ app.get("/users", (req, res) => {
   res.json(users.slice(0, limit));
 });
 
+// get users/:id 라우터 추가!
+app.get("/users/:id", (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  const user = users.filter((item) => item.id === id)[0];
+  res.status(201).json(user);
+});
 app.listen(3000, console.log("3000번 포트 온"));
 
 module.exports = app;
