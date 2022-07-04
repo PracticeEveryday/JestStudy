@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const app = express();
 
 const users = [
@@ -10,6 +11,8 @@ const users = [
 
 // middleware
 app.use(morgan("dev"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/users", (req, res) => {
   req.query.limit = req.query.limit || 10;
@@ -45,6 +48,20 @@ app.delete("/users/:id", (req, res) => {
   }
   const user = users.filter((item) => item.id !== id);
   res.status(204).json(user);
+});
+
+app.post("/users", (req, res) => {
+  const name = req.body.name;
+  if (!name) {
+    return res.status(400).end();
+  } else if (users.filter((item) => item.name === name).length) {
+    return res.status(409).end();
+  }
+  const id = Date.now();
+  const user = { id, name };
+  users.push(user);
+  console.log(user);
+  res.status(201).json(user);
 });
 
 app.listen(3000, console.log("3000번 포트 온"));
