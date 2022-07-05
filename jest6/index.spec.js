@@ -1,6 +1,6 @@
-const request = require("supertest");
-const should = require("should");
-const app = require("./index");
+import request from "supertest";
+import should from "should";
+import { app } from "./index.js";
 
 // 보통 http 이름을 써줌
 describe("GET /users/", () => {

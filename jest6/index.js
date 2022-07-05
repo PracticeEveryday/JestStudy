@@ -1,6 +1,6 @@
-const express = require("express");
-const morgan = require("morgan");
-const bodyParser = require("body-parser");
+import express from "express";
+import morgan from "morgan";
+import bodyParser from "body-parser";
 const app = express();
 
 const users = [
@@ -66,4 +66,4 @@ app.post("/users", (req, res) => {
 
 app.listen(3000, console.log("3000번 포트 온"));
 
-module.exports = app;
+export { app };
