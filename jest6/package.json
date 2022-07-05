@@ -4,20 +4,23 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-register": "^6.26.0",
     "body-parser": "^1.20.0",
     "express": "^4.18.1",
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "test": "mocha --require babel-core/register index.spec.js --exit"
+    "start": "nodemon index.js --exec babel-node",
+    "test": "mocha --require @babel/register index.spec.js --exit"
   },
   "devDependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/node": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/register": "^7.18.6",
     "mocha": "^10.0.0",
+    "nodemon": "^2.0.18",
     "should": "^13.2.3",
     "supertest": "^6.2.3"
-  },
-  "type": "module"
+  }
 }
