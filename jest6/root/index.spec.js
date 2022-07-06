@@ -1,6 +1,6 @@
 import request from "supertest";
 import should from "should";
-import { app } from "./index";
+import { app } from "./src/app";
 
 // 보통 http 이름을 써줌
 describe("GET /users/", () => {
