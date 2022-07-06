@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "nodemon src/bin/index.js --exec babel-node",
-    "test": "NODE_ENV=test mocha --require @babel/register index.spec.js --exit"
+    "test": "NODE_ENV=test mocha --require @babel/register __test__ --exit"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.6",
