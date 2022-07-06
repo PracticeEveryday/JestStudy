@@ -9,8 +9,8 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "nodemon index.js --exec babel-node",
-    "test": "mocha --require @babel/register index.spec.js --exit"
+    "start": "nodemon bin/index.js --exec babel-node",
+    "test": "NODE_ENV=test mocha --require @babel/register index.spec.js --exit"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.6",

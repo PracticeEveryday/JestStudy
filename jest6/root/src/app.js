@@ -7,7 +7,9 @@ import routers from "./api";
 const app = express();
 
 // middleware
-app.use(morgan("dev"));
+if (process.env.NODE_ENV !== "test") {
+  app.use(morgan("dev"));
+}
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
