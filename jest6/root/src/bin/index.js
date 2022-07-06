@@ -2,6 +2,7 @@
 /* app.listen(3000, console.log("3000번 포트 온")); */ // => 서버 구동이 중복으로 일어남
 // so index로 분리
 
-import { app } from "../src/app";
+import { app } from "../app";
+import config from "../config";
 
-app.listen(3000, console.log("3000번 포트 온"));
+app.listen(config.PORT, console.log(`${config.PORT}번 포트 온`));
