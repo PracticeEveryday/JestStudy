@@ -46,7 +46,6 @@ export class UserService {
     const id = Date.now();
     const user = { id, name };
     users.push(user);
-    console.log(user);
     res.status(201).json(user);
   }
 }
