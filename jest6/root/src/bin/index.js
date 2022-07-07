@@ -5,4 +5,9 @@
 import { app } from "../app";
 import config from "../config";
 
-app.listen(config.PORT, console.log(`${config.PORT}번 포트 온`));
+import syncDB from "./sync-db";
+
+syncDB().then(() => {
+  console.log("Sync database");
+  app.listen(config.PORT, console.log(`${config.PORT}번 포트 온`));
+});
