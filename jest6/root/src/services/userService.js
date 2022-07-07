@@ -1,4 +1,5 @@
-import { users } from "../db";
+//import { users } from "../db";
+import models from "../db/models/User";
 
 export class UserService {
   finds(req, res) {
@@ -9,7 +10,11 @@ export class UserService {
       // return을 안 넣어주면 아래 코드 다 실행 되서 중복 ㅠ
       return res.status(400).end();
     }
-    res.json(users.slice(0, limit));
+
+    models.User.findAll({}).then((users) => {
+      res.json(users);
+    });
+    //res.json(users.slice(0, limit));
   }
 
   findOne(req, res) {

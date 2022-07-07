@@ -1,6 +1,8 @@
 import request from "supertest";
 import should from "should";
 import { app } from "../src/app";
+import models from "../src/db/models/User";
+
 // request(app) 은 서버를 구동함 하지만 index.js에도 서버를 고동하는 코드가 있음
 /* app.listen(3000, console.log("3000번 포트 온")); */ // => 서버 구동이 중복으로 일어남
 // so index로 분리
@@ -8,13 +10,16 @@ import { app } from "../src/app";
 // 보통 http 이름을 써줌
 describe("GET /users/", () => {
   describe("성공 시 ", () => {
-    it("유저 객체를 담은 배열로 응답한다.", (done) => {
+    // it이 실행 되기 전에 먼저 실행되는 함수
+    // return 만 해주면 mocha에서 자동으로 promise를 리턴하면 자동으로 비동기가 완료 될때까지 보장된다. so 1줄이니 중괄호 없이 그냥 만듦
+    before(() => models.sequelize.sync({ force: true }));
+    it.only("유저 객체를 담은 배열로 응답한다.", (done) => {
       // 우리가 만든 api 서버는 모두 비동기로 동작하게 됨!!
       // 비동기 처리 해주기 it 2번째 파라미터의 함수에 done이란 콜백 함수를 넣어주고 테스트가 끝나는 시점에 done콜백 함수 호출해주면 끝
       request(app)
         .get("/users")
         .end((err, res) => {
-          //console.log(res.body);
+          console.log(res.body);
           res.body.should.be.instanceof(Array);
           done();
         });
